@@ -1,0 +1,29 @@
+import datetime
+# Define the chatbot's responses
+responses = {
+    "hello": "Hello! How can I help you?",
+    "how are you": "I'm just a chatbot, but I'm here to assist you!",
+    "bye": "Goodbye! Have a great day!",
+    "what is the date today?": f"Today's date is {datetime.date.today()}",
+    "default": "I'm not sure I understand. Can you please rephrase or ask something else?"
+}
+
+
+def chatbot_response(user_input):
+    user_input = user_input.lower()
+
+
+    if user_input in responses:
+        return responses[user_input]
+    else:
+        return responses["default"]
+
+print("Chatbot: Hello! How can I assist you today?")
+while True:
+    user_input = input("You: ")
+    response = chatbot_response(user_input)
+    print("Chatbot:", response)
+
+    if "bye" in user_input.lower():
+        print("Chatbot: Goodbye!")
+        break
